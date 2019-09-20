@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
   const limit = parseInt(query.limit);
 
   const str = "^" + branch;
-  const reg = new RegExp(str);
+  const reg = new RegExp(str, "i");
   const bank = await Bank.find({ branch: reg })
     .sort({ branch: 1 })
     .limit(limit)

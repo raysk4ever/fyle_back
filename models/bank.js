@@ -38,7 +38,7 @@ const Bank = mongoose.model("Banks", bankSchema);
 function validateBank(bank) {
   const Schema = {
     bank_id: joi.number().required(),
-    name: joi.string().required(),
+    //name: joi.string().required(),
     branch: joi.string().required(),
     address: joi.string().required(),
     city: joi.string().required(),

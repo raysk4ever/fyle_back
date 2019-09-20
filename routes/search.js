@@ -10,7 +10,8 @@ router.get("/", async (req, res) => {
   const limit = parseInt(query.limit);
   const offset = parseInt(query.offset);
 
-  const bank = await Bank.find({ branch })
+  // const bank = await Bank.find({ branch:  })
+  const bank = await Bank.find({ "branch": { $regex: new RegExp("^" + branch.toLowerCase() + "$", "i") } })
     .sort({ ifsc: 1 })
     .limit(limit)
     .skip(offset);
